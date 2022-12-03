@@ -12,7 +12,7 @@ services:
       - flask
 
   flask:
-    image: "andreu5547/flask:1.0"
+    image: "andreu5547/flask:1.1"
     container_name: flask
     environment:
       - FLASK_DEBUG=True
@@ -29,9 +29,10 @@ services:
     image: "postgres:15.0-alpine"
     container_name: postgres
     environment:
-      POSTGRES_PASSWORD: Password!
+      POSTGRES_PASSWORD: asdfghsaq1
     ports:
       - "5432:5432"
     volumes:
       - ./data:/var/lib/postgresql/data
+      - ./init-user-db.sql:/docker-entrypoint-initdb.d/init-user-db.sql
 
